@@ -3,6 +3,7 @@ package net.mrchar.demo.springdatajpa.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import static jakarta.persistence.GenerationType.IDENTITY;
 
@@ -19,6 +20,10 @@ public class Student {
     private String name;
     @Column(name = "age")
     private Integer age;
+    @Setter
+    @ManyToOne
+    @JoinColumn(name = "class_room_id")
+    private ClassRoom classRoom;
 
     public Student(String name, Integer age) {
         this.name = name;
